@@ -2,12 +2,10 @@
 /results/
 *.lst
 *.rej
-license.txt
-runner.conf
 /bin/
 /results/
 *.iml
 .idea/
 .settings/
 out/
-
+target/
