@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -70,5 +72,40 @@ public class TestStream {
 		System.out.println(sum);
 		Integer sum1 = list.stream().reduce(1,(i,j) ->i*j);
 		System.out.println(sum1);
+	}
+
+	@Test
+	public void testSteam10(){
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(7);
+		list.add(4);
+		list.add(6);
+		Map<Integer,String> map =list.stream().collect(Collectors.toMap(Function.identity(),o->String.format("item%s",o)));
+		System.out.println(map);
+	}
+
+	@Test
+	public void testSteam11(){
+		List<User> list = new ArrayList<User>();
+		list.add(new User("与李", 18));
+		list.add(new User("CSDN", 19));
+		list.add(new User("han", 20));
+		list.add(new User("han", 21));
+		Map<String,List<User>> group  =list.stream().collect(Collectors.groupingBy(User::getName));
+		System.out.println(group);
+	}
+
+	@Test
+	public void testSteam12(){
+		List<User> list = new ArrayList<User>();
+		list.add(new User("与李", 18));
+		list.add(new User("CSDN", 19));
+		list.add(new User("han", 20));
+		list.add(new User("han", 21));
+		Map<Boolean,List<User>> partitioning  =list.stream().collect(Collectors.partitioningBy(o->o.getAge()>=20 && o.getAge()<18  ));
+		System.out.println(partitioning);
 	}
 }
