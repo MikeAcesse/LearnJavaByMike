@@ -13,6 +13,7 @@ public class WrongWayVolatile implements Runnable{
           try{
              while (num <= 100000 && !canceled){
              	if(num % 100 ==0){
+	               // System.out.println(canceled);
 	                System.out.println(num + "是100的倍数。");
                 }
              	num++;
@@ -29,5 +30,6 @@ public class WrongWayVolatile implements Runnable{
 		thread.start();
 		Thread.sleep(5000);
 		r.canceled = true;
+		//System.out.println(r.canceled);
 	}
 }

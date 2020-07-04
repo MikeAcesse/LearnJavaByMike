@@ -2,7 +2,8 @@ package com.imooc.stopthread;
 
 /**
  * @author fanzk
- * @version 1.8
+ * @version 1.8 描述：最佳实践2：在catch子语句中调用Thread.currentThread().interrupt()来恢复设置中断状态，以便于在后续的执行中，依然能够检查到刚才发生了中断
+ *  * 回到刚才RightWayStopThreadInProd补上中断，让它跳出
  * @date 2020/7/2 15:13
  */
 public class RightWayStopThreadInProd2  implements Runnable{
