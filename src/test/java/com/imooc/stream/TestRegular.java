@@ -5,6 +5,10 @@ import org.junit.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
+
 
 /**
  * @author fanzk
@@ -84,5 +88,99 @@ public class TestRegular {
 
 		System.out.println("a 与 b 异或的结果是："+(a^b));
 		System.out.println("a 和b 或的结果是："+(a|b));
+	}
+
+	@Test
+	public void test7(){
+		List<Integer> arrayList= new ArrayList<>();
+		arrayList.add(9);
+		arrayList.add(8);
+		arrayList.add(7);
+		arrayList.add(6);
+		arrayList.add(5);
+		List<Integer> arrayList2= new ArrayList<>();
+		arrayList2.add(1);
+		arrayList2.add(3);
+		arrayList2.add(7);
+		arrayList2.add(8);
+
+		for (int i = 0; i < arrayList.size(); i++) {
+			for (int j = 0; j <arrayList2.size() ; j++) {
+				if(arrayList.get(i)==arrayList2.get(j)){
+					System.out.println(arrayList.get(i));
+				}
+			}
+		}
+
+	}
+
+	@Test
+	public void test8(){
+		List<Integer> arrayList= new ArrayList<>();
+		arrayList.add(9);
+		arrayList.add(8);
+		arrayList.add(7);
+		arrayList.add(6);
+		arrayList.add(5);
+		List<Integer> arrayList2= new ArrayList<>();
+		arrayList2.add(3);
+		arrayList2.add(1);
+		arrayList2.add(11);
+		arrayList2.add(8);
+		for (Integer a: arrayList
+		     ) {
+			if(arrayList2.contains(a)){
+				System.out.println(Integer.toString(a));
+			}
+		}
+
+	}
+
+	@Test
+	public void test9(){
+		List<Integer> arrayList= new ArrayList<>();
+		arrayList.add(9);
+		arrayList.add(8);
+		arrayList.add(7);
+		arrayList.add(6);
+		arrayList.add(5);
+		List<Integer> arrayList2= new ArrayList<>();
+		arrayList2.add(1);
+		arrayList2.add(3);
+		arrayList2.add(9);
+		arrayList2.add(8);
+		List<Integer> interSection = arrayList.stream().filter(item -> arrayList2.contains(item)).collect(toList());
+		System.out.println("---------交集-----------");
+		interSection.parallelStream().forEach(System.out :: println);
+
+        List<Integer> reduce1 = arrayList.stream().filter(item ->!arrayList2.contains(item)).collect(toList());
+		System.out.println("---------差集-----------");
+		reduce1.parallelStream().forEach(System.out::println);
+
+		List<Integer> reduce2 = arrayList2.stream().filter(item ->!arrayList.contains(item)).collect(toList());
+		System.out.println("---------差集-----------");
+		reduce2.parallelStream().forEach(System.out::println);
+
+		List<Integer> listAll  = arrayList.parallelStream().collect(toList());
+		List<Integer> listAll2  = arrayList2.parallelStream().collect(toList());
+		listAll.addAll(listAll2);
+		System.out.println("---并集 listAll---");
+		listAll.parallelStream().forEachOrdered(System.out::println);
+
+
+		List<Integer> listAllDistinct  =listAll.stream().distinct().collect(toList());
+		System.out.println("---得到去重并集 listAllDistinct---");
+		listAllDistinct.parallelStream().forEachOrdered(System.out :: println);
+
+		System.out.println("---原来的List1---");
+		arrayList.parallelStream().forEachOrdered(System.out :: println);
+		System.out.println("---原来的List2---");
+		arrayList2.parallelStream().forEachOrdered(System.out :: println);
+
+
+
+
+
+
 	}
 }
