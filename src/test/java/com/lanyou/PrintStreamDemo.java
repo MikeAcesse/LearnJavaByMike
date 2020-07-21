@@ -92,4 +92,20 @@ public class PrintStreamDemo {
 		pw.printf("姓名：%s;年龄：%s;成绩：%s;性别：%s",name,age,score,sex);
 		pw.close();
 	}
+
+	@Test
+	public void testPrintWriter2() throws IOException {
+		PrintWriter pw = null;
+		pw = new PrintWriter(new FileOutputStream(new File("d:"+File.separator+"test.txt")));
+		pw.print("hello ");
+		pw.println("world!!!");
+
+		String name ="樊治康";
+		int age ='M';
+		float score = 990.345f;
+		char sex='M';
+		pw.printf("姓名：%s;年龄：%d;成绩：%f;性别：%c",name,age,score,sex);
+		pw.printf("姓名：%s;年龄：%s;成绩：%s;性别：%s",name,age,score,sex);
+		pw.close();
+	}
 }
