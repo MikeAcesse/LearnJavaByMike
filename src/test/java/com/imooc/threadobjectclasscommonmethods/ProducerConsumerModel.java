@@ -14,9 +14,12 @@ public class ProducerConsumerModel {
           Producer producer = new Producer(eventStorage);
           Consumer consumer = new Consumer(eventStorage);
           new Thread(producer).start();
-          new Thread(consumer).start();
+		  new Thread(consumer).start();
+
 	}
 }
+
+
 class Producer implements Runnable{
 	private EventStorage storage;
     public Producer(EventStorage storage){
@@ -29,6 +32,8 @@ class Producer implements Runnable{
 		}
 	}
 }
+
+
 class Consumer implements  Runnable{
     private EventStorage storage;
     public Consumer(EventStorage storage) {
@@ -41,6 +46,7 @@ class Consumer implements  Runnable{
 		}
 	}
 }
+
 class EventStorage{
 	private int maxSize;
 	private LinkedList<Date> storage;
@@ -48,6 +54,8 @@ class EventStorage{
 		maxSize =10;
 		storage = new LinkedList<>();
 	}
+
+
 	public synchronized void put(){
 		while(storage.size() == maxSize){
 			try{
@@ -60,15 +68,18 @@ class EventStorage{
 		System.out.println("仓库里有了"+storage.size()+"个产品。");
 		notify();
 	}
-	public synchronized void take(){
-		while(storage.size() ==0 ){
+	public synchronized void take() {
+		while (storage.size() == 0) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println("拿到了"+storage.poll()+",现在仓库还剩下"+storage.size());
-			notify();
 		}
+		System.out.println("拿到了" + storage.poll() + ",现在仓库还剩下" + storage.size());
+		notify();
 	}
+
+
 }
+

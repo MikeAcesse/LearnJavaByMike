@@ -11,15 +11,15 @@ package com.imooc.uncaughtexception;
 public class CantCatchDirectly implements Runnable {
 	@Override
 	public void run() {
-		try {
-			throw new RuntimeException();
-		} catch (RuntimeException e) {
-			//e.printStackTrace();
-			System.out.println(Thread.currentThread().getName()+"Caught Exception.");
-		}
+//		try {
+//			throw new RuntimeException();
+//		} catch (RuntimeException e) {
+//			//e.printStackTrace();
+//			System.out.println(Thread.currentThread().getName()+"Caught Exception.");
+//		}
 
 
-		//throw new RuntimeException();
+		throw new RuntimeException();
 	}
 
 	public static void main(String[] args) {

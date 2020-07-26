@@ -30,6 +30,6 @@ public class WrongWayVolatile implements Runnable{
 		thread.start();
 		Thread.sleep(5000);
 		r.canceled = true;
-		//System.out.println(r.canceled);
+		System.out.println(r.canceled);
 	}
 }

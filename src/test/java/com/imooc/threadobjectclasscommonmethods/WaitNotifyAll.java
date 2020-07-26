@@ -21,7 +21,7 @@ public class WaitNotifyAll implements Runnable{
           }
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Runnable r = new WaitNotifyAll();
 		Thread threadA = new Thread(r);
 		Thread threadB = new Thread(r);
@@ -30,12 +30,14 @@ public class WaitNotifyAll implements Runnable{
 			public void run() {
 				synchronized (resourceA){
 					resourceA.notifyAll();
+					//resourceA.notify();
 					System.out.println(" ThreadC notified.");
 				}
 			}
 		});
 		threadA.start();
 		threadB.start();
+		Thread.sleep(200);
 		threadC.start();
 	}
 }
