@@ -8,11 +8,11 @@ package com.imooc.uncaughtexception;
 public class ExceptionInChildThread implements Runnable{
 	public static void main(String[] args) {
 		new Thread(new ExceptionInChildThread()).start();
-//		try {
-//			Thread.sleep(200);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		for (int i = 0; i <1000 ; i++) {
 			System.out.println(i);
 		}
