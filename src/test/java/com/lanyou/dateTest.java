@@ -3,6 +3,7 @@ package com.lanyou;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -37,6 +38,8 @@ public class dateTest {
 
 	@Test
 	public void testswitch(){
-
+           String str ="/root/work/";
+           String[] strArray = str.split(",");
+           System.out.println(Arrays.toString(strArray));
 	}
 }
