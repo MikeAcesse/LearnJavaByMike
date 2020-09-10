@@ -177,10 +177,5 @@ public class TestRegular {
 		System.out.println("---原来的List2---");
 		arrayList2.parallelStream().forEachOrdered(System.out :: println);
 
-
-
-
-
-
 	}
 }

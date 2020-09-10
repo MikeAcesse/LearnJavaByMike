@@ -85,4 +85,27 @@ public class TestString {
 
 	}
 
+	@Test
+	public void testCount6(){
+		//String str ="helloworld";
+		String str ="我爱你中国";
+		char a =str.charAt(0);
+		System.out.println(a);
+		System.out.println((int)a);
+		Character b =a;
+		System.out.println(b.compareTo('c'));
+		Character d = 'd';
+		Character e = 'd';
+		System.out.println(e.compareTo(d));
+
+
+	}
+
+	@Test
+	public void test7(){
+		int a=1;
+		long b=1;
+		System.out.println(a==b);
+	}
+
 }

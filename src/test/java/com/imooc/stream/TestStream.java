@@ -2,10 +2,7 @@ package com.imooc.stream;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -107,5 +104,25 @@ public class TestStream {
 		list.add(new User("han", 21));
 		Map<Boolean,List<User>> partitioning  =list.stream().collect(Collectors.partitioningBy(o->o.getAge()>=20 && o.getAge()<18  ));
 		System.out.println(partitioning);
+	}
+
+	@Test
+	public void testjoin(){
+		String[] a = {"a","b","c","d"};
+		String join = String.join("-",a);
+		System.out.println(join);
+	}
+
+	@Test
+	public void testjoin1(){
+		String[] a = {"java","is","very","cool"};
+	    Set<String> strings = new LinkedHashSet<>(Arrays.asList(a));
+		String join = String.join("-",strings);
+		System.out.println(join);
+	}
+
+	@Test
+	public void testtrywithresources(){
+
 	}
 }

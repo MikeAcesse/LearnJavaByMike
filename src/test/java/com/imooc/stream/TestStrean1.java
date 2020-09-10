@@ -2,6 +2,9 @@ package com.imooc.stream;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author fanzk
  * @version 1.8
@@ -57,4 +60,34 @@ public class TestStrean1 {
 		System.out.println(subSrcDirs);
 
 	}
+	@Test
+	public void test5(){
+		List<Long> list = new ArrayList<>();
+		for (int i = 0; i <= 100; i++) {
+			list.add(new Long(i));
+		}
+		Long sum = list.stream().parallel().reduce(0L,(m,n) -> m+n);
+		System.out.println(sum);
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
