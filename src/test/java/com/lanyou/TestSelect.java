@@ -88,4 +88,20 @@ public class TestSelect {
 		text = text.replace("drwxr-xr-x 2 root root     a1\n","");
 		System.out.println(text);
 	}
+
+	@Test
+	public void test5(){
+		test6("/root/work/","/root/work2/","/root/work3/");
+
+	}
+	//cd dir && rsync dir;cd dir1 && rsync;
+	public void test6(String... directorys){
+		StringBuilder sb = new StringBuilder("mkdir -p /tmp/test/;");
+		String rsyncStr = "rsync --delete-before --force -r /tmp/test/ ./";
+		for (String dir: directorys
+		     ) {
+			sb.append(String.format("test -e %1$s && cd %1$s && " + rsyncStr+";",dir));
+		}
+		System.out.println( sb.toString());
+	}
 }
