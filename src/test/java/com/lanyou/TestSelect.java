@@ -1,5 +1,6 @@
 package com.lanyou;
 
+import info2soft.qa.common.util.StringUtil;
 import org.junit.Test;
 
 import java.util.Scanner;
@@ -103,5 +104,14 @@ public class TestSelect {
 			sb.append(String.format("test -e %1$s && cd %1$s && " + rsyncStr+";",dir));
 		}
 		System.out.println( sb.toString());
+	}
+
+	@Test
+	public void test7(){
+		String str="共 3 条";
+		int num = StringUtil.findInteger(str);
+		System.out.println(num);
+
+
 	}
 }
