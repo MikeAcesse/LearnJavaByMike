@@ -3,12 +3,11 @@ package lamda;
 /**
  * @author fanzk
  * @version 1.8
- * @date 2020/10/19 10:00
+ * @date 2020/10/19 10:35
  */
-public class TestMain2 {
+public class TestMain4 {
 	public static void main(String[] args) {
-		Converter<String,Integer> converter = (from) -> Integer.valueOf(from);
-		//Converter<String,Integer> converter = (String from) -> {return  Integer.valueOf(from);};
+		Converter<String,Integer> converter = Integer::valueOf;
 		Integer converted = converter.convert("123");
 		System.out.println(converted);
 	}
