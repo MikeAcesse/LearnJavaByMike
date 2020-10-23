@@ -35,6 +35,7 @@ public class XmlClassDemoReader {
 //			}
 			//已知属性名的情况下
 			System.out.println("id: "+child.attributeValue("id"));
+			System.out.println("node: "+child.getName());
 
 			//未知子元素名情况下
 			List<Element> elementList = child.elements();
