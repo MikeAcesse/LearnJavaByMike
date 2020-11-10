@@ -3,7 +3,9 @@ package com.stream;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
@@ -133,5 +135,58 @@ public class TestStream {
 		nodeList.add("zhi");
 		System.out.println(nodeList.subList(1,2));
 
+	}
+
+	@Test
+	public void test16(){
+		User[] users = {
+				new User(1,2,3),
+				new User(4,5,6),
+				new User(7,8,9)
+		};
+
+//		Arrays.stream(users)
+//				.reduce((u1,u2)-> {
+//					u1.setNum1(u1.getNum1()+u2.getNum1());
+//					u1.setNum2(u1.getNum2()+u2.getNum2());
+//					u1.setNum3(u1.getNum3()+u2.getNum3());
+//					return u1;
+//				}).ifPresent(System.out::println);
+
+
+		Optional<User> reduced = Arrays.stream(users)
+				.reduce((u1,u2)-> {
+					u1.setNum1(u1.getNum1()+u2.getNum1());
+					u1.setNum2(u1.getNum2()+u2.getNum2());
+					u1.setNum3(u1.getNum3()+u2.getNum3());
+					return u1;
+				});
+		reduced.ifPresent(System.out::println);
+
+	}
+
+	public User getUser(List<User> list){
+		User user = new User();
+		list.stream().forEach(
+				user1 ->{
+					user.setNum1(user.getNum1()+user1.getNum1());
+					user.setNum2(user.getNum2()+user1.getNum2());
+					user.setNum3(user.getNum3()+user1.getNum3());
+				}
+		);
+        return user;
+	}
+
+
+	@Test
+	public void test18(){
+		User[] users = {
+				new User(1,2,3),
+				new User(4,5,6),
+				new User(7,8,9)
+		};
+
+		User user =getUser(Arrays.asList(users));
+		System.out.println(user);
 	}
 }
