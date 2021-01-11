@@ -1,6 +1,13 @@
 package com.string;
 
+import info2soft.qa.common.util.StringUtil;
 import org.junit.jupiter.api.Test;
+
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author fanzk
@@ -42,5 +49,91 @@ public class testString {
 		String str = "2020-07-17 13:42:26.33892";
 		int index = str.indexOf('.');
 		System.out.println(str.substring(0,index));
+	}
+
+	@Test
+	public void test4(){
+		String output = "Windows [版本 6.1.7601]\n" +
+				"\n" +
+				"版权所有 (c) 2009 Microsoft Corporation。保留所有权利。\n" +
+				"\n" +
+				"\n" +
+				"\n" +
+				"C:\\Program Files\\OpenSSH\\home\\Administrator>\"C:\\Program Files (x86)\\info2soft\\node\\bin\\getcdptime.exe\" 0 8283CA56-D386-39AC-2F6E-F89916D612A5 detail 2020-11-30_09-34-07 10\n" +
+				"2020-11-30_09-34-07 -2 1606700047.0 backup 1 Baseline\n" +
+				"\n" +
+				"2020-11-30_09-34-07 0 1606700082.156504 create 1 D:\\work\\test\\monitor2\\i2-7007-0\\aa_0.txt\n" +
+				"\n" +
+				"2020-11-30_09-34-07 1 1606700082.156504 write 1 D:\\work\\test\\monitor2\\i2-7007-0\\aa_0.txt, off 0, len 1,024\n" +
+				"\n" +
+				"\n" +
+				"\n" +
+				"C:\\Program Files\\OpenSSH\\home\\Administrator>";
+		List<String> out = getWindowOutput(output);
+		System.out.println(out);
+	}
+	public  List<String> getWindowOutput(String inputText) {
+		if (StringUtil.isNotEmpty(inputText)) {
+			List<String> afterFiltered = StringUtil.parseLines(inputText);
+			Iterator<String> it = afterFiltered.iterator();
+			while(it.hasNext()){
+				String x = it.next().trim();
+				if(x.contains("Last login")|| x.contains("Microsoft")||x.contains("版权所有")
+						|| x.contains("C:\\Program Files") || x.contains("D:") || x.contains("Windows") || x.isEmpty()) {
+					it.remove();
+				}
+			}
+			return afterFiltered;
+		}
+		return Collections.EMPTY_LIST;
+	}
+
+	@Test
+	public void test5(){
+		String valueString ="Windows [版本 6.1.7601]\n" +
+				"\n" +
+				"版权所有 (c) 2009 Microsoft Corporation。保留所有权利。\n" +
+				"\n" +
+				"\n" +
+				"\n" +
+				"C:\\Program Files\\OpenSSH\\home\\Administrator>D:  &  cd D:\\work\\test\\monitor2\\i2-7022-0\\  &  attrib . | awk \"{print $1,$2}\" \n" +
+				"D:\\work\\test\\monitor2\\i2-7022-0 \n" +
+				"\n" +
+				"\n" +
+				"\n" +
+				"D:\\work\\test\\monitor2\\i2-7022-0>";
+		Matcher ma = Pattern.compile("attrib.*?:", Pattern.DOTALL).matcher(valueString);
+		while(ma.find()){
+			System.out.println(ma.group());
+		}
+	}
+
+	@Test
+	public void test6(){
+       String str = windowsNode("start");
+		System.out.println(str);
+		System.out.println("******************************");
+		String str1 = windowsNode("stop");
+		System.out.println(str1);
+
+		System.out.println("******************************");
+		String str2 = windowsNode("restart");
+		System.out.println(str2);
+	}
+	private  String windowsNode(String action) {
+		String i2NodeHome="C:\\Program Files\\Java";
+		String[] courses = {"I2-Availability", "I2-Collector", "I2-HaDetector", "I2-rpc", "I2-Sdatad", "I2-Slogd", "I2-Srepd"};
+		String cmd = "tasklist |grep Smon.exe && taskkill /f /t /im \"Smon.exe\" &";
+		if (action.equals("restart") || action.equals("start")) {
+			for (String cours : courses) {
+				cmd += " net start " + cours + " &";
+			}
+			cmd += "\""+i2NodeHome+"\\node\\bin\\smon.exe\" start";
+		} else if(action.equals("stop")){
+			for (String cours : courses) {
+				cmd += " net  stop " + cours + " & ";
+			}
+		}
+		return cmd;
 	}
 }
