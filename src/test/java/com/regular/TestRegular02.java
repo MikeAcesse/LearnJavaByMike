@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 /**
  * @author fanzk
@@ -153,4 +154,97 @@ public class TestRegular02 {
 
 	}
 
+
+	@Test
+	public void testRegexMatches(){
+		String Regex = "a*b";
+		String input = "aabfooaabfooabfoobkkk";
+		String repalce = "-";
+		Pattern p = Pattern.compile(Regex);
+		Matcher m = p.matcher(input);
+		StringBuffer sb = new StringBuffer();
+		while(m.find()){
+			m.appendReplacement(sb,repalce);
+		}
+		m.appendTail(sb);
+		System.out.println(sb.toString());
+
+
+	}
+     @Test
+	public void testRegexDog(){
+	Pattern p = Pattern.compile("cat");
+	Matcher m = p.matcher("one cat two cats in the yard");
+	StringBuffer sb = new StringBuffer();
+	while (m.find()) {
+		m.appendReplacement(sb, "fan");
+	}
+	m.appendTail(sb);
+	System.out.println(sb.toString());
+
+
+	}
+	@Test
+	public void testRegexSyntax() {
+		String REGEX = "dog";
+		String INPUT = "The dog says meow " + "All dogs say meow.";
+		String REPLACE = "cat";
+
+		try {
+			Pattern pattern = Pattern.compile(REGEX);
+			Matcher matcher = pattern.matcher(INPUT);
+			INPUT = matcher.replaceAll(REPLACE);
+			System.out.println(INPUT);
+		} catch (PatternSyntaxException e) {
+			System.out.println("PatternSyntaxException: ");
+			System.out.println("Description: " + e.getDescription());
+			System.out.println("Index: " + e.getIndex());
+			System.out.println("Message: " + e.getMessage());
+			System.out.println("Pattern: " + e.getPattern());
+		}
+	}
+
+
+
+	@Test
+	public void testRegexReplaceFirst() {
+		String REGEX = "dog";
+		String INPUT = "The dog says meow " + "All dogs say meow.";
+		String REPLACE = "cat";
+
+		try {
+			Pattern pattern = Pattern.compile(REGEX);
+			Matcher matcher = pattern.matcher(INPUT);
+			INPUT = matcher.replaceFirst(REPLACE);
+			System.out.println(INPUT);
+		} catch (PatternSyntaxException e) {
+			System.out.println("PatternSyntaxException: ");
+			System.out.println("Description: " + e.getDescription());
+			System.out.println("Index: " + e.getIndex());
+			System.out.println("Message: " + e.getMessage());
+			System.out.println("Pattern: " + e.getPattern());
+		}
+	}
+
+	@Test
+	public void testRegexSecond() {
+		String REGEX = "foo";
+		String INPUT = "fooooooooooooooooo";
+		String INPUT2 = "ooooofoooooooooooo";
+		String INPUT3 = "foo";
+		Pattern pattern = Pattern.compile(REGEX);
+		Matcher matcher = pattern.matcher(INPUT);
+		Matcher matcher2 = pattern.matcher(INPUT2);
+		Matcher matcher3 = pattern.matcher(INPUT3);
+		System.out.println(matcher.lookingAt());
+		System.out.println(matcher.matches());
+		System.out.println(matcher2.lookingAt());
+		System.out.println(matcher2.find());
+		System.out.println(matcher2.matches());
+		System.out.println(matcher3.matches());
+
+	}
+
 }
+
+
