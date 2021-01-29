@@ -100,6 +100,7 @@ public class testString {
 		String out1 ="aa_0.txt,aa_1.txt,aa_10.txt,aa_11.txt,aa_12.txt,aa_13.txt,aa_14.txt,aa_15.txt,aa_16.txt,aa_17.txt,aa_18.txt,aa_19.txt,aa_2.txt,aa_20.txt,aa_21.txt,aa_22.txt,aa_23.txt,aa_24.txt,aa_25.txt,aa_26.txt,aa_27.txt,aa_28.txt,aa_29.txt,aa_3.txt,aa_30.txt,aa_31.txt,aa_32.txt,aa_33.txt,aa_34.txt,aa_35.txt,aa_36.txt,aa_37.txt,aa_38.txt,aa_39.txt,aa_4.txt,aa_40.txt,aa_41.txt,aa_42.txt,aa_43.txt,aa_44.txt,aa_45.txt,aa_46.txt,aa_47.txt,aa_48.txt,aa_49.txt,aa_5.txt,aa_6.txt,aa_7.txt,aa_8.txt,aa_9.txt";
 		String[] fileNamesArray1 = out.split(",");
 		Arrays.sort(fileNamesArray1);
+		out1 = StringUtil.toPlainText(fileNamesArray1,",");
 		System.out.println("second: "+out1);
 
 		System.out.println(out.equals(out1));
