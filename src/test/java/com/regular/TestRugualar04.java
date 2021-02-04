@@ -75,4 +75,15 @@ public class TestRugualar04 {
 			m.reset("fix the rig with rags");
 		}
 	}
+
+
+	@Test
+	public void testResetting1() throws IOException {
+		Matcher m = Pattern.compile("[frb][aiu][gx]")
+				.matcher("fix the rug with bags");
+		while(m.find()){
+			System.out.println(m.group());
+			m.reset("fix the rig with rags");
+		}
+	}
 }
