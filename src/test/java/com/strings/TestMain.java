@@ -3,7 +3,9 @@ package com.strings;
 import info2soft.qa.common.util.StringUtil;
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -84,6 +86,28 @@ public class TestMain {
 		List<String> strList = StringUtil.grepLine(str,".txt");
 		System.out.println(strList);
 		System.out.println(strList.size());
+
+	}
+
+
+	@Test
+	public void test6(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HH:mm:ss");
+		String[] dateStr = df.format(new Date().getTime()+60*1000).split("-");
+		System.out.println(dateStr);
+
+	}
+
+
+	@Test
+	public void test7(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-M-dd HH:mm:ss");
+		String  dateStr = df.format(new Date().getTime()+60*10);
+		System.out.println(dateStr);
+		dateStr = dateStr.replaceAll("[-:\\s+]","");
+		System.out.println(dateStr);
+		String dataString = dateStr.substring(0,dateStr.length()-2)+"00";
+		System.out.println(dataString);
 
 	}
 
