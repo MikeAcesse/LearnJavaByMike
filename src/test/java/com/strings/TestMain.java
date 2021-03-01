@@ -4,11 +4,13 @@ import info2soft.qa.common.util.StringUtil;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @author fanzk
@@ -110,6 +112,23 @@ public class TestMain {
 		System.out.println(dataString);
 
 	}
+
+
+	@Test
+	public void test8(){
+		List<String> elementList = new ArrayList<>();
+		elementList.add("");
+		elementList.add("aaa");
+		elementList.add("bbb");
+		elementList.add("ccc");
+		elementList.add("ddd");
+		elementList.add("");
+		System.out.println(elementList.toString());
+		List<String> aList = elementList.stream().filter(ele ->!ele.equals("")).collect(Collectors.toList());
+		System.out.println(aList.toString());
+
+	}
+
 
 
 }
