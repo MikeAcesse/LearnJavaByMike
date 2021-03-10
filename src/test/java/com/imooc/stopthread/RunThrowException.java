@@ -8,21 +8,21 @@ import java.util.concurrent.Executors;
  * @date 2020/7/2 13:44
  */
 public class RunThrowException {
-	public void aVoid() throws Exception{
-		throw  new Exception();
-	}
+    public void aVoid() throws Exception {
+        throw new Exception();
+    }
 
-	public static void main(String[] args) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					throw new Exception();
-				} catch (Exception e) {
-					System.out.println("保存日志");
-					e.printStackTrace();
-				}
-			}
-		}).start();
-	}
+    public static void main(String[] args) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    throw new Exception();
+                } catch (Exception e) {
+                    System.out.println("保存日志");
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 }

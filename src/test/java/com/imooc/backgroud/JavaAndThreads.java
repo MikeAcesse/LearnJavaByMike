@@ -6,7 +6,7 @@ package com.imooc.backgroud;
  * @date 2020/7/9 17:47
  */
 public class JavaAndThreads {
-	public static void main(String[] args) {
-		System.out.println("Hello Threads!");
-	}
+    public static void main(String[] args) {
+        System.out.println("Hello Threads!");
+    }
 }

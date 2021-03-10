@@ -6,10 +6,10 @@ package com.imooc.threadobjectclasscommonmethods;
  * @date 2020/7/7 10:41
  */
 public class ThreadSetName {
-	public static void main(String[] args) {
-		Thread thread = new  Thread();
-		thread.start();
-		thread.setName("fanzhikang");
-		System.out.println(thread.getName());
-	}
+    public static void main(String[] args) {
+        Thread thread = new Thread();
+        thread.start();
+        thread.setName("fanzhikang");
+        System.out.println(thread.getName());
+    }
 }

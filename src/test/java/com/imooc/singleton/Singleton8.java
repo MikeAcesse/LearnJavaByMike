@@ -6,6 +6,8 @@ package com.imooc.singleton;
  * @date 2020/7/19 13:24
  */
 public enum Singleton8 {
-	INSTANCE;
-	public void whatever(){}
+    INSTANCE;
+
+    public void whatever() {
+    }
 }

@@ -6,18 +6,18 @@ package com.imooc.singleton;
  * @date 2020/7/19 13:17
  */
 public class Singleton5 {
-	private static Singleton5 instance;
+    private static Singleton5 instance;
 
-	private Singleton5() {
+    private Singleton5() {
 
-	}
+    }
 
-	public static Singleton5 getInstance() {
-		if (instance == null) {
-			synchronized (Singleton5.class) {
-				instance = new Singleton5();
-			}
-		}
-		return instance;
-	}
+    public static Singleton5 getInstance() {
+        if (instance == null) {
+            synchronized (Singleton5.class) {
+                instance = new Singleton5();
+            }
+        }
+        return instance;
+    }
 }

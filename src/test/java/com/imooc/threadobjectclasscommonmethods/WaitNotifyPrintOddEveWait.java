@@ -6,34 +6,35 @@ package com.imooc.threadobjectclasscommonmethods;
  * @date 2020/7/7 9:57
  */
 public class WaitNotifyPrintOddEveWait {
-	private static int count = 0;
-	private static final Object lock = new Object();
-	//1. 拿到锁，我们就打印
-	//2.打印完，唤醒其他线程，自己就休眠
-	static class TurningRunner implements  Runnable{
+    private static int count = 0;
+    private static final Object lock = new Object();
 
-		@Override
-		public void run() {
-              while(count <= 100){
-              	synchronized (lock){
-              		//拿到锁就打印
-	                System.out.println(Thread.currentThread().getName()+":"+count++);
-	                lock.notify();
-	                if(count <=100){
-		                try {
-		                	//如果任务还没有结束，就让出当前的锁，并休眠
-			                lock.wait();
-		                } catch (InterruptedException e) {
-			                e.printStackTrace();
-		                }
-	                }
+    //1. 拿到锁，我们就打印
+    //2.打印完，唤醒其他线程，自己就休眠
+    static class TurningRunner implements Runnable {
+
+        @Override
+        public void run() {
+            while (count <= 100) {
+                synchronized (lock) {
+                    //拿到锁就打印
+                    System.out.println(Thread.currentThread().getName() + ":" + count++);
+                    lock.notify();
+                    if (count <= 100) {
+                        try {
+                            //如果任务还没有结束，就让出当前的锁，并休眠
+                            lock.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
-              }
-		}
-	}
+            }
+        }
+    }
 
-	public static void main(String[] args) {
-          new Thread(new TurningRunner(),"偶数").start();
-          new Thread(new TurningRunner(),"奇数").start();
-	}
+    public static void main(String[] args) {
+        new Thread(new TurningRunner(), "偶数").start();
+        new Thread(new TurningRunner(), "奇数").start();
+    }
 }

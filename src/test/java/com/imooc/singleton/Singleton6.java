@@ -6,17 +6,19 @@ package com.imooc.singleton;
  * @date 2020/7/19 13:18
  */
 public class Singleton6 {
-	private volatile static Singleton6 instance;
-	private Singleton6(){}
+    private volatile static Singleton6 instance;
 
-	public static Singleton6 getInstance(){
-		if(instance == null){
-			synchronized (Singleton6.class){
-				if(instance == null ){
-					instance = new Singleton6();
-				}
-			}
-		}
-		return instance;
-	}
+    private Singleton6() {
+    }
+
+    public static Singleton6 getInstance() {
+        if (instance == null) {
+            synchronized (Singleton6.class) {
+                if (instance == null) {
+                    instance = new Singleton6();
+                }
+            }
+        }
+        return instance;
+    }
 }
