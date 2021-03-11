@@ -8,10 +8,10 @@ import java.util.List;
  * @date 2020/6/12 9:15
  */
 public class Book {
-	public long id;
-	public String name;
-	public String author;
-	public String isbn;
-	public List<String> tags;
-	public String pubDate;
+    public long id;
+    public String name;
+    public String author;
+    public String isbn;
+    public List<String> tags;
+    public String pubDate;
 }

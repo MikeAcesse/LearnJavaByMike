@@ -3,7 +3,10 @@
   "name": "Java核心技术",
   "author": "fanzhikang",
   "isbn": "978-7-111-54742-6",
-  "tags": ["Java","Network"],
+  "tags": [
+    "Java",
+    "Network"
+  ],
   "pubDate": "2016-09-01",
-  "price":119.5
+  "price": 119.5
 }

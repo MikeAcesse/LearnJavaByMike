@@ -6,7 +6,7 @@ package com.imooc.createthreads.wrongways;
  * @date 2020/7/8 10:07
  */
 public class Lambda {
-	public static void main(String[] args) {
-		new Thread(() -> System.out.println(Thread.currentThread().getName())).start();
-	}
+    public static void main(String[] args) {
+        new Thread(() -> System.out.println(Thread.currentThread().getName())).start();
+    }
 }
