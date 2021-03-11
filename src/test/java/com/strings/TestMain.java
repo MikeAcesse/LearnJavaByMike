@@ -1,8 +1,10 @@
 package com.strings;
 
 import info2soft.qa.common.util.StringUtil;
+import info2soft.qa.common.util.WaitUtil;
 import org.junit.Test;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -128,6 +130,39 @@ public class TestMain {
 		System.out.println(aList.toString());
 
 	}
+
+
+	@Test
+	public void test9(){
+		boolean result = isAtTime("15:12",10);
+		System.out.println(result);
+
+
+	}
+
+	public boolean isAtTime(String expectedTimes,int check_intervals_s){
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		long parsedTimes = 0;
+		try {
+			parsedTimes = sdf.parse(expectedTimes).getTime();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		while(true){
+			long actualTimes = 0;
+			try {
+				actualTimes = sdf.parse(sdf.format(new Date())).getTime();
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			if(actualTimes >= parsedTimes){
+				return true;
+			}else{
+				WaitUtil.sleep(check_intervals_s);
+			}
+		}
+	}
+
 
 
 
