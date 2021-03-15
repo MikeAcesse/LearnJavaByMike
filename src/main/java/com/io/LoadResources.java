@@ -46,14 +46,14 @@ public class LoadResources {
 		p1.list(printWriter);
 		printWriter.flush();
         System.out.println("***********list outstream****************");
-        PrintStream printStream = new PrintStream("resources/db2.properties");
-        p.list(printStream);
-
-        FileReader fileReader = new FileReader("target/classes/db.properties");
-        Properties p1 = new Properties();
-        p1.load(fileReader);
-        System.out.println("***********list printwriter****************");
-        PrintWriter printWriter = new PrintWriter("resources/db3.properties");
+//        PrintStream printStream = new PrintStream("resources/db2.properties");
+//        p.list(printStream);
+//
+//        FileReader fileReader = new FileReader("target/classes/db.properties");
+//        Properties p1 = new Properties();
+//        p1.load(fileReader);
+//        System.out.println("***********list printwriter****************");
+//        PrintWriter printWriter = new PrintWriter("resources/db3.properties");
         p1.list(printWriter);
         printWriter.flush();
 

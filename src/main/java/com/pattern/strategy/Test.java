@@ -7,5 +7,6 @@ public class Test {
         ctx = new Context(new StrategyImplB());
         ctx.doMethod();
         ctx = new Context(new StrategyImplC());
-        ctx.doMethod();
+        ctx.doMethod();}
+}
 

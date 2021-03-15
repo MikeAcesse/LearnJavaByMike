@@ -12,7 +12,6 @@ import java.util.Optional;
  * @version 1.8
  * @date 2020/10/30 9:24
  */
-<<<<<<< Updated upstream:src/test/java/com/stream/TestStreanApi.java
 public class TestStreanApi {
 	@Test
 	public void testReduce(){
@@ -47,9 +46,9 @@ public class TestStreanApi {
 		boolean resul2 = taskList.stream().anyMatch(name->name.startsWith("fan"));
 		System.out.println("resul2="+resul2);
 	}
-=======
-public class TestStream {
-    public static void main(String[] args) {
+
+    @Test
+    public  void test10() {
         List<String> taskList = new ArrayList<>();
         taskList.add("fanzhikang");
         taskList.add("wangtao");
@@ -65,8 +64,6 @@ public class TestStream {
         taskList.addAll(1, subTaskList);
         System.out.println(taskList);
         boolean result = taskList.stream().anyMatch(name -> name.equals("ddd"));
+	}
 
-
-    }
->>>>>>> Stashed changes:src/main/java/com/stream/TestStream.java
 }
