@@ -34,4 +34,5 @@ public class StopThread implements Runnable {
 		}
 		thread.stop();
 	}
+
 }
