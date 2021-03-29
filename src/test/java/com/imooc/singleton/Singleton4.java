@@ -6,16 +6,16 @@ package com.imooc.singleton;
  * @date 2020/7/19 13:16
  */
 public class Singleton4 {
-	private static Singleton4 instance;
+    private static Singleton4 instance;
 
-	private Singleton4() {
+    private Singleton4() {
 
-	}
+    }
 
-	public synchronized static Singleton4 getInstance() {
-		if (instance == null) {
-			instance = new Singleton4();
-		}
-		return instance;
-	}
+    public synchronized static Singleton4 getInstance() {
+        if (instance == null) {
+            instance = new Singleton4();
+        }
+        return instance;
+    }
 }

@@ -6,18 +6,22 @@ package com.imooc.singleton;
  * @date 2020/7/19 13:09
  */
 public class Singleton2 {
-	private final static Singleton2 INSTANCE;
-	static {
-		INSTANCE = new Singleton2();
-	}
-	private Singleton2(){
+    private final static Singleton2 INSTANCE;
 
-	}
-	public static Singleton2 getInstance(){
-		return INSTANCE;
-	}
-	public static void main(String[] args) {
-		Singleton2 s = Singleton2.getInstance();
-		System.out.println(s);
-	}
+    static {
+        INSTANCE = new Singleton2();
+    }
+
+    private Singleton2() {
+
+    }
+
+    public static Singleton2 getInstance() {
+        return INSTANCE;
+    }
+
+    public static void main(String[] args) {
+        Singleton2 s = Singleton2.getInstance();
+        System.out.println(s);
+    }
 }

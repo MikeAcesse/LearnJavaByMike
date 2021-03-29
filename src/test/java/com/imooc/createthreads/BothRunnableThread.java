@@ -6,17 +6,17 @@ package com.imooc.createthreads;
  * @date 2020/7/8 9:35
  */
 public class BothRunnableThread {
-	public static void main(String[] args) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				System.out.println("我来自Runnable");
-			}
-		}){
-			@Override
-			public void run() {
-				System.out.println("我来自Thread");
-			}
-		}.start();
-	}
+    public static void main(String[] args) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("我来自Runnable");
+            }
+        }) {
+            @Override
+            public void run() {
+                System.out.println("我来自Thread");
+            }
+        }.start();
+    }
 }

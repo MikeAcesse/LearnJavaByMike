@@ -36,4 +36,15 @@ public class TestString2 {
 		System.out.println(s);
 
 	}
+
+
+
+	@Test
+	public void test4(){
+		String baselineStr ="baseline-2021-02-07_11-13-53\\";
+		baselineStr =((baselineStr.charAt(baselineStr.length()-1)=='\\') || (baselineStr.charAt(baselineStr.length()-1)=='/'))?
+				baselineStr.substring(0,baselineStr.length()-1):baselineStr;
+		System.out.println(baselineStr);
+
+	}
 }

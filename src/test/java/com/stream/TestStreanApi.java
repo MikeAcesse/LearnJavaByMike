@@ -46,4 +46,24 @@ public class TestStreanApi {
 		boolean resul2 = taskList.stream().anyMatch(name->name.startsWith("fan"));
 		System.out.println("resul2="+resul2);
 	}
+
+    @Test
+    public  void test10() {
+        List<String> taskList = new ArrayList<>();
+        taskList.add("fanzhikang");
+        taskList.add("wangtao");
+        taskList.add("jiangang");
+        System.out.println(taskList);
+        taskList.add(1, "zhangbo");
+        System.out.println(taskList);
+        List<String> subTaskList = new LinkedList<>();
+        subTaskList.add("meimei");
+        subTaskList.add("gege");
+        taskList.addAll(subTaskList);
+        System.out.println(taskList);
+        taskList.addAll(1, subTaskList);
+        System.out.println(taskList);
+        boolean result = taskList.stream().anyMatch(name -> name.equals("ddd"));
+	}
+
 }

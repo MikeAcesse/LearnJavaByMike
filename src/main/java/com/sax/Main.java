@@ -14,12 +14,12 @@ import java.io.InputStream;
  * @date 2020/6/12 9:56
  */
 public class Main {
-	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
         InputStream inputStream = Main.class.getResourceAsStream("/book.xml");
         SAXParserFactory spf = SAXParserFactory.newInstance();
-		SAXParser saxParser = spf.newSAXParser();
-		saxParser.parse(inputStream,new MyHandler());
-	}
+        SAXParser saxParser = spf.newSAXParser();
+        saxParser.parse(inputStream, new MyHandler());
+    }
 
 }
 
