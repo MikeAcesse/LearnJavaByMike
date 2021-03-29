@@ -1,4 +1,4 @@
-package com.threads;
+package com.threads.chapter2.th01;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;

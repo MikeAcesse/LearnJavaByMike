@@ -1,4 +1,4 @@
-package com.threads;
+package com.threads.chapter2.th01;
 
 /**
  * @author fanzk
