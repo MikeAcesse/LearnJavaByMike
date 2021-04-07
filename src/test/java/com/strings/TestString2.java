@@ -47,4 +47,13 @@ public class TestString2 {
 		System.out.println(baselineStr);
 
 	}
+
+
+	@Test
+	public void test5(){
+		String str1 = "/root/work/test/mto01/backup/1111/";
+		int index = str1.lastIndexOf("/",str1.length()-2);
+		String str2 = str1.substring(0,index+1);
+		System.out.println(str2);
+	}
 }
