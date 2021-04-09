@@ -6,10 +6,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -161,6 +158,29 @@ public class TestMain {
 				WaitUtil.sleep(check_intervals_s);
 			}
 		}
+	}
+
+
+	@Test
+	public void testsplit() throws Exception {
+		String text = "从2021-04-08 15:16:07到2021-04-08 15:17:32";
+		String[] textArrays = text.split("从|到");
+		System.out.println(StringUtil.toPlainText(textArrays,","));
+		String newTime = getNewTime(textArrays[1],"6");
+		System.out.println(newTime);
+
+
+	}
+
+	public String getNewTime(String datetime,String addMinutes) throws Exception {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date originalDate = sdf.parse(datetime);
+		Calendar newTime = Calendar.getInstance();
+		newTime.setTime(originalDate);
+		newTime.add(Calendar.MINUTE,Integer.parseInt(addMinutes));
+		Date newDate = newTime.getTime();
+		String result = sdf.format(newDate);
+		return result;
 	}
 
 

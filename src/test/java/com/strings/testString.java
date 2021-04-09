@@ -2,6 +2,9 @@ package com.strings;
 
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -44,23 +47,7 @@ public class testString {
 				"AA_20.TXT\n" +
 				"AA_21.TXT\n" +
 				"AA_22.TXT\n" +
-				"AA_23.TXT\n" +
-				"AA_24.TXT\n" +
-				"AA_2.TXT\n" +
-				"AA_3.TXT\n" +
-				"AA_4.TXT\n" +
-				"AA_5.TXT\n" +
-				"AA_6.TXT\n" +
-				"AA_7.TXT\n" +
-				"AA_8.TXT\n" +
-				"AA_9.TXT\n" +
-				"BB_0.TXT\n" +
-				"BB_10.TXT\n" +
-				"BB_11.TXT\n" +
-				"BB_12.TXT\n" +
-				"BB_13.TXT\n" +
-				"BB_14.TXT\n" +
-				"BB_15.TXT\n" +
+
 				"BB_16.TXT\n" +
 				"BB_17.TXT\n" +
 				"BB_18.TXT\n" +
@@ -82,4 +69,26 @@ public class testString {
 		System.out.print("返回值 :" );
 		System.out.println( Str.toLowerCase() );
 	}
+
+
+	@Test
+	public void testCompareDate() throws ParseException {
+		String beginTime=new String("2020-06-09 10:22:22");
+		String endTime=new String("2017-05-08 11:22:22");
+		String endTime1=new String("2017-05-08 11:22:22");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date sd1=df.parse(beginTime);
+		Date sd2=df.parse(endTime);
+		System.out.println(sd1.before(sd2));
+		System.out.println(sd1.after(sd2));
+		System.out.println(beginTime.compareTo(endTime));
+		System.out.println(endTime1.compareTo(endTime));
+	}
+
+	/**
+	 * 日期比较大小，有三种方法
+	 * 1.利用Date类的before,after方法
+	 * 2.字符串比较大小
+	 * 3.换算成毫秒比大小
+	 */
 }
