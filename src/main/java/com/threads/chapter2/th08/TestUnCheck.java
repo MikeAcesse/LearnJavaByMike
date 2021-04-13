@@ -7,9 +7,10 @@ package com.threads.chapter2.th08;
  */
 public class TestUnCheck {
 	public static void main(String[] args) {
-//		User user = new User();
-//		user.setAge(-20);
-//		System.out.println(user.getAge());
+		User user = new User();
+		user.setAge(-20); //抛出运行时异常，程序运行到此行。
+		System.out.println("*****************");
+		System.out.println(user.getAge());
 
 		CheckUser checkUser = new CheckUser();
 		try {
@@ -27,7 +28,7 @@ class User{
 	private int age;
 	public void setAge(int age){
 		if(age < 0){
-			RuntimeException e = new RuntimeException("Runtime exception message");
+			RuntimeException e = new RuntimeException("Runtime exception message");   //unchecked exception
 			throw e;
 		}
 		this.age = age;
@@ -45,9 +46,9 @@ class CheckUser{
 		return scores;
 	}
 
-	public void setScores(int scores) {
+	public void setScores(int scores)  {
 		if(scores < 0){
-			Exception e = new Exception("score value is "+scores+",请输入合理的值");
+			Exception e = new Exception("score value is "+scores+",请输入合理的值");  //checked exception
 			try {
 				throw e;
 			} catch (Exception ex) {
