@@ -47,4 +47,33 @@ public class TestString3 {
 		String retval = formatter.format(newDate);
 		return retval;
 	}
+
+
+	@Test
+	public void test2(){
+		String str = "[1\n" +
+				"2021-04-16 15:56:06.0\n" +
+				"backup\n" +
+				"baseline\n" +
+				"1, 2\n" +
+				"2021-04-16 15:56:19.333774\n" +
+				"create\n" +
+				"/root/work/test/monitor2/i2-7053-0/aa_0.txt\n" +
+				"1, 3\n" +
+				"2021-04-16 15:56:19.333791\n" +
+				"setattr\n" +
+				"/root/work/test/monitor2/i2-7053-0/aa_0.txt\n" +
+				"1, 4\n" +
+				"2021-04-16 15:56:19.333833\n" +
+				"write\n" +
+				"/root/work/test/monitor2/i2-7053-0/aa_0.txt, off 0, len 1024\n" +
+				"1, 5\n" +
+				"2021-04-16 15:56:53.812237\n" +
+				"write\n" +
+				"/root/work/test/monitor2/i2-7053-0/aa_0.txt, off 0, len 1024\n" +
+				"1]";
+		String expectedStr = "setattr\n/root/work/test/monitor2/i2-7053-0/aa_0.txt";
+		boolean result = str.contains(expectedStr);
+		System.out.println(result);
+	}
 }
