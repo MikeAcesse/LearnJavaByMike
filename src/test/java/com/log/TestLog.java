@@ -21,9 +21,11 @@ public class TestLog {
 	public void test1(){
 		logger.debug("我是debug.");
 	}
+
 	@Test
 	public void test2(){
-
+		String user_dir = System.getProperty("user.dir");
+		logger.debug("user_dir= "+user_dir);
 	}
 
 	@Test
