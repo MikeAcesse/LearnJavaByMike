@@ -34,11 +34,12 @@ public class TestStringReaderAndStringWriter {
 		System.out.println((char)sr.read());  //a
 		//如果支持标记读取，则标记当前的读取位置，也就是字符串中的第二个字符b
 		if(sr.markSupported()){
-			sr.mark(3); //查看源码后知道，这个参数3无任何意义
+			sr.mark(1); //查看源码后知道，这个参数3无任何意义
 		}
 		System.out.println((char)sr.read());//b
 		System.out.println((char)sr.read());//c
-		//sr.reset();  //从做标记的mark 开始读取
+		System.out.println((char)sr.read());//d
+		sr.reset();  //从做标记的mark 开始读取
 		System.out.println((char)sr.read()); //从当前读取位置设置为mark标记的值，输出为b
 		char[] x = new char[3];
 		sr.read(x,0,2);
