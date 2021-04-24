@@ -1,0 +1,2 @@
+2021-04-20 18:20:16,769 DEBUG [main] [com.log.TestLog4j] - 我是debug.
+2021-04-20 18:23:29,540 DEBUG [main] [com.log.TestLog4j] - user_dir= E:\idea-workspace\LearnJavaByMike
