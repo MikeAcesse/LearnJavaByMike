@@ -1,4 +1,4 @@
-package algorithm.LinkedList.LikedListBasics;
+package algorithm.LinkedList.A1LikedListBasics;
 
 /**
  * @author fanzk
