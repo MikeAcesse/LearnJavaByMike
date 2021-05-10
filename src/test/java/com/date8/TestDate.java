@@ -181,4 +181,16 @@ public class TestDate {
 		LocalDateTime dateTime = LocalDateTime.parse(dateTimeText,formatter);
 		System.out.println(dateTime);
 	}
+
+	@Test
+	public void test12(){
+		String str1 = "4489f961-0d87-4f46-b507-751f93df2931_snap_2021-04-30_17-43-20";
+		int index = str1.lastIndexOf("_",str1.length()-10);
+		String sus = str1.substring(index+1);
+		System.out.println(sus);
+		String str2 = "38785ddf-2b49-4716-beae-6cf810427b9f_snap_2021-04-30_17-35-19";
+		int index1 = str1.lastIndexOf("_",str1.length()-10);
+		String sus1 = str2.substring(index1+1);
+		System.out.println(sus1);
+	}
 }
