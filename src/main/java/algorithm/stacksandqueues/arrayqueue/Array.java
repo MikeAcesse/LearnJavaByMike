@@ -1,6 +1,4 @@
-package algorithm.arrayqueue;
-
-import java.util.Arrays;
+package algorithm.stacksandqueues.arrayqueue;
 
 /**
  * @author fanzk

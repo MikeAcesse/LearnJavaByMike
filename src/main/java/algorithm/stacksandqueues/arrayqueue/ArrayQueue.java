@@ -1,4 +1,4 @@
-package algorithm.arrayqueue;
+package algorithm.stacksandqueues.arrayqueue;
 
 /**
  * @author fanzk

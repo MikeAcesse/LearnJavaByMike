@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Vector;
 
 /**
+ *
+ *  Vector是有序的，可以重复的
  * @author fanzk
  * @version 1.8
  * @date 2021/5/11 10:14

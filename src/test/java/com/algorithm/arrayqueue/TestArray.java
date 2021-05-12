@@ -1,6 +1,6 @@
 package com.algorithm.arrayqueue;
 
-import algorithm.arrayqueue.Array;
+import algorithm.stacksandqueues.arrayqueue.Array;
 import org.junit.Before;
 import org.junit.Test;
 

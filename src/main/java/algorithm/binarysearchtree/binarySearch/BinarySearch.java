@@ -1,4 +1,4 @@
-package algorithm.tree.binarySearch;
+package algorithm.binarysearchtree.binarySearch;
 
 /**
  * @author fanzk
