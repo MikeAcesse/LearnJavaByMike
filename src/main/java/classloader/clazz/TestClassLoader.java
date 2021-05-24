@@ -1,7 +1,4 @@
-package com.clazz;
-
-import sun.applet.AppletClassLoader;
-import sun.misc.Launcher;
+package classloader.clazz;
 
 /**
  * @author fanzk

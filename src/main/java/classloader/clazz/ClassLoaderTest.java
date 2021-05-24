@@ -1,4 +1,4 @@
-package com.clazz;
+package classloader.clazz;
 
 /**
  * @author fanzk

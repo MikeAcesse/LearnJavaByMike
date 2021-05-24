@@ -68,54 +68,7 @@ public class Testbase {
 				"\n" +
 				"C:\\Program Files\\OpenSSH\\home\\Administrator>cd  /d D:\\work\\test\\monitor\\backup\\i2-12145\\& attrib * | grep  -e end \n" +
 				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_0.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_1.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_10.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_11.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_12.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_13.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_14.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_15.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_16.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_17.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_18.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_19.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_2.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_20.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_21.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_22.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_23.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_24.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_25.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_26.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_27.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_28.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_29.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_3.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_30.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_31.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_32.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_33.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_34.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_35.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_36.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_37.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_38.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_39.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_4.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_40.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_41.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_42.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_43.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_44.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_45.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_46.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_47.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_48.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_49.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_5.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_6.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_7.txtend\n" +
-				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_8.txtend\n" +
+
 				"A            D:\\work\\test\\monitor\\backup\\i2-12145\\aa_9.txtend\n" +
 				"\n" +
 				"\n" +
@@ -155,6 +108,15 @@ public class Testbase {
 			return afterFiltered;
 		}
 		return Collections.EMPTY_LIST;
+	}
+
+
+	@Test
+	public void test6(){
+		int left = 2;
+		int right = left++;
+		System.out.println("right = "+right);
+		System.out.println("left = "+left);
 	}
 
 }
