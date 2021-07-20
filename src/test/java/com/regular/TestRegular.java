@@ -320,4 +320,13 @@ public class TestRegular {
 
 	}
 
+
+	@Test
+	public void testreplace(){
+		String home = false? "c:\\progream":"/var/i2data";
+		String fullFileName =home+(false?"\\data\\wwwroot\\default\\logs\\":"/data/wwwroot/default/logs/");
+		fullFileName = true ?fullFileName.replace("wwwroot","www").replace("data",""):fullFileName;
+		System.out.println(fullFileName);
+	}
+
 }

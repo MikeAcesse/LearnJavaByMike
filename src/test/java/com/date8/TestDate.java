@@ -193,4 +193,15 @@ public class TestDate {
 		String sus1 = str2.substring(index1+1);
 		System.out.println(sus1);
 	}
+
+	@Test
+	public void test13(){
+		String actual = "20210720_135422";
+		String expected = "20210720_134545";
+		String expected1 = "20210720_134723";
+		boolean result =  expected.compareTo(actual) <0;
+		boolean result1 =  expected1.compareTo(actual) <0;
+		System.out.println(result);
+		System.out.println(result1);
+	}
 }
