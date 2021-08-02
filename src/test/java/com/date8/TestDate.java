@@ -2,6 +2,8 @@ package com.date8;
 
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -203,5 +205,30 @@ public class TestDate {
 		boolean result1 =  expected1.compareTo(actual) <0;
 		System.out.println(result);
 		System.out.println(result1);
+	}
+
+	public int calculateTimeDifference(String fromDateTime,String toDateTime){
+		SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		/*小时差*/
+		int hours=0;
+		try {
+			Date fromDate2 = simpleFormat.parse(fromDateTime);
+			Date toDate2 = simpleFormat.parse(toDateTime);
+			long from2 = fromDate2.getTime();
+			long to2 = toDate2.getTime();
+			hours = (int) ((to2 - from2) / (1000 * 60 * 60));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		System.out.println("两个时间之间的小时差为：" + hours);
+		return hours;
+	}
+
+	@Test
+	public void test14(){
+		String from = "2021-07-26 19:38:38";
+		String to = "2021-07-26 21:38:31";
+		int num = calculateTimeDifference(from,to);
+		System.out.println(num);
 	}
 }
