@@ -1,0 +1,78 @@
+{
+  "Node": {
+    "node1": {
+      "port": "26821",
+      "user": "root",
+      "pwd": "123456",
+      "license": "cdp,move,ffo",
+      "includePath": "/",
+      "note": "node1 xyz"
+    },
+    "node2": {
+      "port": "26821",
+      "user": "root",
+      "pwd": "123456",
+      "license": "cdp,move,ffo",
+      "includePath": "/",
+      "note": "node2 xyz"
+    },
+    "node3": {
+      "port": "26821",
+      "user": "root",
+      "pwd": "123456",
+      "license": "cdp,move,ffo",
+      "includePath": "/",
+      "note": "node3 xyz"
+    },
+    "node4": {
+      "port": "26821",
+      "user": "root",
+      "pwd": "123456",
+      "license": "cdp,move,ffo",
+      "includePath": "/",
+      "note": "node4 xyz"
+    }
+  },
+  "CopyRule": {
+    "copyRule1": {
+      "srcNode": "node2",
+      "backupNode": "node1",
+      "srcDir": "/",
+      "backupDir": "/i2FFO/",
+      "unmonitoredDir": " ",
+      "mapType": "一对一"
+    },
+    "copyRule2": {
+      "srcNode": "node1",
+      "backupNode": "node2",
+      "srcDir": "/",
+      "backupDir": "/i2FFO/",
+      "unmonitoredDir": " ",
+      "mapType": "一对一"
+    },
+    "copyRule3": {
+      "srcNode": "node3",
+      "backupNode": "node2",
+      "srcDir": "C:\\,D:\\",
+      "backupDir": "/i2FFO/",
+      "unmonitoredDir": " ",
+      "mapType": "一对一"
+    },
+    "copyRule4": {
+      "srcNode": "node1",
+      "backupNode": "node2",
+      "mapType": "多对一",
+      "srcDir": "/root/work/test/monitor/",
+      "backupDir": "/root/work/test/monitor/backup/",
+      "unmonitoredDir": "/root/work/test/unmonitor/"
+    },
+    "copyRule5": {
+      "srcNode": "node3",
+      "backupNode": "node4",
+      "mapType": "多对一",
+      "srcDir": "/root/work/test/monitor/",
+      "backupDir": "/root/work/test/monitor/backup/",
+      "unmonitoredDir": "/root/work/test/unmonitor/"
+    }
+  }
+}
