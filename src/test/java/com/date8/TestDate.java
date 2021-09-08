@@ -1,13 +1,17 @@
 package com.date8;
 
+import net.sf.cglib.core.Local;
 import org.junit.Test;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.Locale;
 
 
 /**
@@ -34,6 +38,8 @@ import java.util.Date;
  *
  */
 public class TestDate {
+	private Object DateTime;
+
 	/**
 	 * 　Java 8中的 LocalDate 用于表示当天日期。和java.util.Date不同，它只有日期，不包含时间。
 	 */
@@ -52,6 +58,9 @@ public class TestDate {
 	public void test2(){
 		LocalDate date = LocalDate.of(2000,1,1);
 		System.out.println("千禧年="+date);
+
+		LocalDate date1 = LocalDate.of(2021,3,8);
+		System.out.println("千禧年="+date1);
 	}
 
 	/**
@@ -71,7 +80,9 @@ public class TestDate {
 	public void test4(){
        LocalDate now = LocalDate.now();
        LocalDate Date = LocalDate.of(2021,4,22);
+       LocalDate Date2 = LocalDate.of(2021,9,8);
 		System.out.println(now.equals(Date));
+		System.out.println(now.equals(Date2));
 	}
 
 
@@ -81,8 +92,8 @@ public class TestDate {
 	@Test
 	public void test5(){
 		LocalTime time = LocalTime.now();
-		  System.out.println("当前时间是："+time);
-		  Date date = new Date();
+		System.out.println("当前时间是："+time);
+		Date date = new Date();
 		System.out.println(date);
 	}
 
@@ -98,24 +109,32 @@ public class TestDate {
 	public void test7(){
 
 		///时间增量
-		LocalTime time = LocalTime.now();
-		System.out.println("time = "+time);
-		LocalTime newTime = time.plusHours(2);
-		System.out.println("newTime= "+newTime);
+//		LocalTime time = LocalTime.now();
+//		System.out.println("time = "+time);
+//		LocalTime newTime = time.plusHours(2);
+//		System.out.println("newTime= "+newTime);
+//		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+//		System.out.println(newTime.format(timeFormatter));
+//		System.out.println(newTime.getHour());
+//		System.out.println(newTime.getMinute());
+//		System.out.println(newTime.getNano());
+//		System.out.println(newTime.getSecond());
+//		System.out.println(newTime.plusMinutes(10));
 
 		//日期增量
 		LocalDate date = LocalDate.now();
 		System.out.println("date = "+date);
 		LocalDate newDate = date.plus(2, ChronoUnit.WEEKS);
 		System.out.println("newDate = "+newDate);
+		System.out.println(newDate.plusWeeks(1));
 
-		LocalDateTime localDateTime = LocalDateTime.now();
-		System.out.println("localDatetime="+localDateTime);
-		LocalDateTime newLocalDateTime = localDateTime.plusHours(6);
-		System.out.println("newLocalDatetime: "+newLocalDateTime);
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		String formateStr = newLocalDateTime.format(formatter);
-		System.out.println(formateStr);
+//		LocalDateTime localDateTime = LocalDateTime.now();
+//		System.out.println("localDatetime="+localDateTime);
+//		LocalDateTime newLocalDateTime = localDateTime.plusHours(6);
+//		System.out.println("newLocalDatetime: "+newLocalDateTime);
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//		String formateStr = newLocalDateTime.format(formatter);
+//		System.out.println(formateStr);
 
 
 	}
@@ -132,6 +151,22 @@ public class TestDate {
 		LocalDate date2 = LocalDate.of(2025,1,1);
 		if(now.isBefore(date2)){
 			System.out.println(date2+"还没有来");
+		}
+
+	}
+
+	@Test
+	public void test18(){
+		//日期比较
+		LocalTime now = LocalTime.now();
+		LocalTime time1 = LocalTime.of(6,25,30);
+		if(now.isAfter(time1)){
+			System.out.println(now +" is 过去了");
+		}
+
+		LocalTime time2 = LocalTime.of(23,25,30);
+		if(now.isBefore(time2)){
+			System.out.println(time2+"还没有来");
 		}
 
 	}
@@ -230,5 +265,24 @@ public class TestDate {
 		String to = "2021-07-26 21:38:31";
 		int num = calculateTimeDifference(from,to);
 		System.out.println(num);
+	}
+
+
+	/**
+	 * java 中%d 和 %f 分别用来表示输出时，替换整型输出和浮点型输出的占位符
+	 * 这里的%n是换行的格式字符串,只能用在print输出语句中, 而\n是回车字符, 可以用在所有的字符串中.
+	 */
+	@Test
+	public void test15(){
+
+		int a = 28;
+		float b = 13.0f;
+		System.out.printf("整数是：%d%n小数是：%f",a,b);
+	}
+
+	@Test
+	public void test16(){
+		LocalDate ld = LocalDate.now();
+		System.out.println(ld.getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.getDefault()));
 	}
 }
