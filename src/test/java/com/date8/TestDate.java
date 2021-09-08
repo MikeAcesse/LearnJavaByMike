@@ -10,6 +10,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.Date;
 import java.util.Locale;
 
@@ -99,7 +100,7 @@ public class TestDate {
 
 	@Test
 	public void test6(){
-		LocalTime time = LocalTime.now();
+		LocalTime time = LocalTime.of(11,30,25);
 		System.out.println("当前时间是："+time);
 		Date date = new Date();
 		System.out.println(date);
@@ -109,13 +110,13 @@ public class TestDate {
 	public void test7(){
 
 		///时间增量
-//		LocalTime time = LocalTime.now();
-//		System.out.println("time = "+time);
-//		LocalTime newTime = time.plusHours(2);
-//		System.out.println("newTime= "+newTime);
-//		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-//		System.out.println(newTime.format(timeFormatter));
-//		System.out.println(newTime.getHour());
+		LocalTime time = LocalTime.now();
+		System.out.println("time = "+time);
+		LocalTime newTime = time.plusHours(2);
+		System.out.println("newTime= "+newTime);
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+		System.out.println(newTime.format(timeFormatter));
+		System.out.println(newTime.getHour());
 //		System.out.println(newTime.getMinute());
 //		System.out.println(newTime.getNano());
 //		System.out.println(newTime.getSecond());
@@ -284,5 +285,60 @@ public class TestDate {
 	public void test16(){
 		LocalDate ld = LocalDate.now();
 		System.out.println(ld.getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.getDefault()));
+	}
+
+
+
+//	public LocalDateTime getLocalDateTime(String dateTimeText, long amountToAdd, TemporalUnit unit){
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//		LocalDateTime dateTime = LocalDateTime.parse(dateTimeText,formatter);
+//		LocalDateTime dateTime2 = dateTime.plus(amountToAdd,unit);
+//		return dateTime2;
+////		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+//////		return formatter2.format(dateTime2);
+//
+//	}
+
+	public LocalDateTime getLocalDateTime(String dateTimeText, long amountToAdd, TemporalUnit unit){
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		LocalDateTime dateTime = LocalDateTime.parse(dateTimeText,formatter);
+		return dateTime.plus(amountToAdd,unit);
+	}
+
+	public String getLocalTime(String dateTimeText, long amountToAdd, TemporalUnit unit){
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		LocalDateTime localDateTime = getLocalDateTime(dateTimeText,amountToAdd,unit);
+		return LocalTime.of(localDateTime.getHour(),localDateTime.getMinute()).format(formatter);
+	}
+
+	public String getLocalDate(String dateTimeText, long amountToAdd, TemporalUnit unit){
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDateTime localDateTime = getLocalDateTime(dateTimeText,amountToAdd,unit);
+		return LocalDate.of(localDateTime.getYear(),localDateTime.getMonth(),localDateTime.getDayOfMonth()).format(formatter);
+	}
+
+	public String getLocalDateTimeString(String dateTimeText, long amountToAdd, TemporalUnit unit){
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		LocalDateTime dateTime = LocalDateTime.parse(dateTimeText,formatter);
+		return dateTime.plus(amountToAdd,unit).format(formatter);
+	}
+
+	@Test
+	public void test17(){
+		LocalDateTime text = getLocalDateTime("2021-09-08 12:02:00",10,ChronoUnit.MINUTES);
+		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+		System.out.println(formatter2.format(text));
+
+		LocalDateTime text1 = getLocalDateTime("2021-09-08 12:02:44",1,ChronoUnit.WEEKS);
+		System.out.println(text1);
+
+		String text2 = getLocalTime("2021-09-08 12:02:25",1,ChronoUnit.HOURS);
+		System.out.println(text2);
+
+		String text3 = getLocalDate("2021-09-08 12:02:25",2,ChronoUnit.DAYS);
+		System.out.println(text3);
+
+		String text4 = getLocalDateTimeString("2021-09-08 12:02:25",10,ChronoUnit.YEARS);
+		System.out.println(text4);
 	}
 }
