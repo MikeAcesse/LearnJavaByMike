@@ -1,6 +1,5 @@
 package com.collectionss.list;
 
-import kotlin.ExperimentalStdlibApi;
 import org.junit.Test;
 
 import java.util.HashSet;

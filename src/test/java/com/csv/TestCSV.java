@@ -75,7 +75,7 @@ public class TestCSV {
 		//CSVWriter writer = new CSVWriter(new OutputStreamWriter(new FileOutputStream(csvFile),"GBK"),CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
 		CSVWriter writer = new CSVWriter(new FileWriter(csvFile,true),CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
 //		writer.writeNext(new String[]{s1,s1,s1});
-//		writer.writeNext(new String[]{"","",""});
+		writer.writeNext(new String[]{""});
 		writer.writeAll(content);
 		writer.flush();
 		writer.close();
