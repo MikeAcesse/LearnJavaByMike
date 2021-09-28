@@ -341,4 +341,19 @@ public class TestDate {
 		String text4 = getLocalDateTimeString("2021-09-08 12:02:25",10,ChronoUnit.YEARS);
 		System.out.println(text4);
 	}
+
+	@Test
+	public void test19() throws InterruptedException {
+		LocalDateTime localDateTime = LocalDateTime.now();
+		System.out.println(localDateTime.getYear());
+		System.out.println(localDateTime.getDayOfMonth());
+		Thread.sleep(1000);
+		LocalDateTime localDateTime1 = LocalDateTime.now();
+		System.out.println(localDateTime1);
+		System.out.println(localDateTime.equals(localDateTime1));
+
+		System.out.println(LocalDate.of(LocalDateTime.now().getYear(),LocalDateTime.now().getMonth(),1));
+		System.out.println(LocalDate.of(LocalDateTime.now().getYear(),LocalDateTime.now().getMonth(),1).toString()+" 12:30:00");
+
+	}
 }
