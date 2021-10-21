@@ -1,8 +1,5 @@
-package com.pattern.ligang.CreatePattern01.PrototypePattern;
+package com.pattern.ligang.StructuralPattern02.ProxyPattern;
 
-
-
-import java.lang.reflect.Proxy;
 
 /**
  * @author fanzk
@@ -14,7 +11,6 @@ public class ProxyObject implements Object {
 	public ProxyObject(){
 		System.out.println("这是代理类");
 		obj = new ObjectImpl() {
-
 		};
 	}
 

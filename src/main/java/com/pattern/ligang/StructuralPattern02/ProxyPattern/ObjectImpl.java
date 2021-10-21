@@ -1,4 +1,4 @@
-package com.pattern.ligang.CreatePattern01.PrototypePattern;
+package com.pattern.ligang.StructuralPattern02.ProxyPattern;
 
 /**
  * @author fanzk
