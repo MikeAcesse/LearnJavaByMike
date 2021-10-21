@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -327,6 +328,43 @@ public class TestRegular {
 		String fullFileName =home+(false?"\\data\\wwwroot\\default\\logs\\":"/data/wwwroot/default/logs/");
 		fullFileName = true ?fullFileName.replace("wwwroot","www").replace("data",""):fullFileName;
 		System.out.println(fullFileName);
+	}
+
+	@Test
+	public void testMatch(){
+		String text = "遍历：123/888";
+		String text2 = text.replaceAll("遍历：","");
+		System.out.println(text2.trim());
+
+	}
+
+	@Test
+	public void testMatch2(){
+		String text = "遍历 : 2018 / 77123";
+		Pattern pattern = Pattern.compile("遍历\\s:\\s(\\d+)\\s/\\s(\\d+)");
+		Matcher m = pattern.matcher(text);
+		int num = m.groupCount();
+		System.out.println(num);
+		if(m.find()){
+			System.out.println(m.group());
+			String text2 = m.group(2);
+			System.out.println("text2= "+text2);
+
+		}
+
+	}
+
+	@Test
+	public void testNumber(){
+		String num = "40160819200";
+		int max = Integer.MAX_VALUE;
+		int min = Integer.MIN_VALUE;
+		System.out.println(max);
+		System.out.println(min);
+		//int Num = Integer.valueOf(num);
+		//System.out.println(Num);
+		long lonNum = Long.valueOf(num);
+		System.out.println(lonNum);
 	}
 
 }
