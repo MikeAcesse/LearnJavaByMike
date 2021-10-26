@@ -1,43 +1,41 @@
 <input>
+
     <!--  Common configuration  -->
-    <param name="BUILD" value="ui"/>
-<!--    <param name="TESTSUITE" value="testdata/TestSuite/SfsFileDirMirrorTest.xml"/>-->
-<!--    <param name="TESTSUITE" value="testdata/TestSuite/I2cdpTest.xml"/>-->
-<!--    <param name="TESTSUITE" value="testdata/TestSuite/ZfsSnapShootTest.xml"/>-->
-<!--    <param name="TESTSUITE" value="testdata/TestSuite/RecoveryManagementTest.xml"/>-->
-<!--    <param name="TESTSUITE" value="testdata/TestSuite/SfsAutomation.xml"/>-->
-    <param name="TESTSUITE" value="testdata/TestSuite/CompareRule.xml"/>
-<!--    <param name="TESTSUITE" value="testdata/TestSuite/ParaCopyRule.xml"/>-->
-<!--    <param name="TESTSUITE" value="testdata/TestSuite/NodeSfs.xml"/>-->
+    <param name="BUILD" value="ui" />
+    <param name="TESTSUITE" value="testdata/TestSuite/fzk/330TestCases.xml"/>
     <param name="TESTTYPE" value="all"/>
     <param name="Debug" value="true"/>
+    <param name="CpuDebug" value="false"/>
+    <param name="GanymedeSsh" value="false"/>
+    <param name="ReserverTestData" value="false"/>
+    <param name="DttJobId" value="1779"/>
 
     <!-- i2up information -->
     <param name="loginUserName" value="admin"/>
     <param name="loginPwd" value="Info1234"/>
     <param name="i2upPort" value="58086"/>
-    <param name="i2upHome" value="C:\Program Files (x86)\info2soft\ctrlcenter\"/>
-    <param name="i2upIp" value="172.20.68.128"/>
-    <param name="i2upVersion" value="7.1.64.20060617"/>
-    <param name="i2upOsType" value="windows"/>
-    <param name="i2upOsVersion" value="10"/>
-    <param name="allPlatform" value="windows_2008R2:1,windows_2008R2:2"/>
-
+    <param name="i2upIp" value="10.1.1.158"/>
+    <param name="i2upVersion" value="7.1.71.21060409"/>
+    <param name="i2upOsType" value="centos"/>
+    <param name="i2upOsVersion" value="7.2"/>
+    <param name="allPlatform" value="centos_7.2:1,centos_7.5:2"/>
 
     <!-- component information -->
-    <param name="componentName" value="componentNameTemplate"/>
-    <param name="componentVersion" value="componentVersionTemplate"/>
-    <param name="componentOsType" value="windows"/>
-    <param name="componentOsVersion" value="componentOsVersionTemplate"/>
-    <param name="componentIpList" value="172.20.68.101,172.20.68.176"/>
-    <!-- block information-->
-    <param name="blockClientName" value="blockClientName"/>
-    <param name="blockClientVersion" value="blockClientVersion"/>
-    <param name="blockServerName" value="blockServerName"/>
-    <param name="blockServerVersion" value="blockServerVersion"/>
+    <param name="componentName" value="node"/>
+    <param name="componentVersion" value="7.1.71.21060409"/>
+    <param name="componentOsType" value="centos"/>
+    <param name="componentOsVersion" value="7.5"/>
+    <param name="componentIpList" value="10.1.2.16,10.1.2.150"/>
 
     <param name="sharedDirOnlinux" value="/home/i2auto"/>
     <param name="sharedDirOnWin" value="z:"/>
+
+    <!-- active information -->
+    <param name="casePath" value=""/>
+    <param name="dbType" value=""/>
+    <param name="dbIscdb" value=""/>
+
+    <!-- upgrade information -->
+    <param name="oldVersionPath" value=""/>
+    <param name="oldVersion" value=""/>
 </input>
-
-

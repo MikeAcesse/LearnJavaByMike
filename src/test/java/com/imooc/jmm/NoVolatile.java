@@ -8,14 +8,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2020/7/9 17:10
  */
 public class NoVolatile implements Runnable {
-    volatile int a;
-    AtomicInteger realA = new AtomicInteger();
+     volatile int a;
+     AtomicInteger realA = new AtomicInteger();
 
     @Override
     public void run() {
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100000; i++) {
             a++;
-            realA.incrementAndGet();
+           realA.incrementAndGet();
         }
     }
 

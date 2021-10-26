@@ -6,10 +6,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -164,6 +161,59 @@ public class TestMain {
 	}
 
 
+	@Test
+	public void testsplit() throws Exception {
+		String text = "从2021-04-08 15:16:07到2021-04-08 15:17:32";
+		String[] textArrays = text.split("从|到");
+		System.out.println(StringUtil.toPlainText(textArrays,","));
+		String newTime = getNewTime(textArrays[1],"6");
+		System.out.println(newTime);
+
+
+	}
+
+	public String getNewTime(String datetime,String addMinutes) throws Exception {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date originalDate = sdf.parse(datetime);
+		Calendar newTime = Calendar.getInstance();
+		newTime.setTime(originalDate);
+		newTime.add(Calendar.MINUTE,Integer.parseInt(addMinutes));
+		Date newDate = newTime.getTime();
+		String result = sdf.format(newDate);
+		return result;
+	}
+
+
+	@Test
+	public void test22(){
+		String strs="20210414_110040.txt\n" +
+				"20210414_110041.txt\n" +
+				"20210414_110042.txt\n" +
+				"20210414_110043.txt\n" +
+				"20210414_110044.txt\n" +
+				"20210414_110045.txt\n" +
+				"20210414_110046.txt\n" +
+				"20210414_110047.txt\n" +
+				"20210414_110049.txt\n" +
+				"20210414_110050.txt\n" +
+				"20210414_110051.txt\n" +
+				"20210414_110052.txt\n" +
+				"20210414_110053.txt\n" +
+				"20210414_110054.txt\n" +
+				"20210414_110055.txt\n" +
+				"20210414_110056.txt";
+		strs = strs.replace(".txt","");
+		List<String> dateStrList = StringUtil.parseLines(strs);
+		System.out.println(dateStrList);
+		String compareDate = "2021-04-14 11:04:18.0";
+		compareDate = compareDate.substring(0,compareDate.lastIndexOf("."));
+		System.out.println("compareDate: "+compareDate);
+		String str = compareDate.replaceAll("[-:]","").replaceAll("\\s","_");
+		System.out.println("str: "+str);
+		boolean  result = dateStrList.stream().allMatch(dateStr -> dateStr.compareTo(str) <0);
+		System.out.println(result);
+
+	}
 
 
 }

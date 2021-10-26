@@ -105,6 +105,12 @@ public class testString {
 
 		System.out.println(out.equals(out1));
 		System.out.println();
+	}
 
+	@Test
+	public void test8(){
+		//格式符%02d中2d前面的前导符0表示输出数据时，若左边有多余位，则补0。利用这种输出格式，
+		String str = String.format("%02d,%03d",15,8);
+		System.out.println(str);
 	}
 }
